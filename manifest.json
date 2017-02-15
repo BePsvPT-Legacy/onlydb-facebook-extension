@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "logger",
+  "version": "0.0.1",
+  "browser_action": {},
+  "background": {
+    "page": "background/index.html",
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.facebook.com/*"],
+      "css": ["content-scripts/index.css"],
+      "js": ["utils.js", "content-scripts/index.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "history",
+    "storage",
+    "unlimitedStorage"
+  ]
+}

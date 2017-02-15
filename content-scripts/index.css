@@ -1,0 +1,26 @@
+/* fb search bar */
+div[role="search"] {
+    display: inline-block;
+    width: 340px !important;
+}
+
+div.uiContextualLayer.uiContextualLayerBelowLeft {
+    width: 340px;
+    min-width: unset;
+}
+
+/* custom search bar */
+.custom-search-bar {
+    display: inline-block;
+    padding: 1px 5px 0;
+    background-color: #fff;
+    border: 1px solid #3b5998;
+    border-radius: 3px;
+}
+
+.custom-search-bar input {
+    width: 240px;
+    height: 22px;
+    border: none;
+    outline: none;
+}
