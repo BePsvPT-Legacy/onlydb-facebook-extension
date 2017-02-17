@@ -28,7 +28,7 @@ const listenForFbSearchBar = () => {
 
 const monitorUserFeed = () => {
   const retrieveFbidFromUrl = (url) => {
-    if (url.endsWith(':3')) {
+    if (url.endsWith(':3') || url.includes('story_fbid')) {
       return null
     } else if (url.includes('photo.php')) {
       return queryString('fbid', url)
@@ -41,6 +41,25 @@ const monitorUserFeed = () => {
     }
 
     return queue.pop()
+  }
+  const isFeedInScreen = (feed) => {
+    const rect = feed.getBoundingClientRect()
+    const screen = {
+      top: window.scrollY,
+      bottom: window.scrollY + document.documentElement.clientHeight
+    }
+    const el = {
+      top: feed.offsetTop + rect.height / 3,
+      bottom: feed.offsetTop + rect.height / 3 * 2
+    }
+
+    if (el.top > screen.top && el.top < screen.bottom) {
+      return true
+    } else if (el.bottom > screen.top && el.bottom < screen.bottom) {
+      return true
+    }
+
+    return false
   }
 
   let lastY = 0, feeds = []
@@ -55,14 +74,22 @@ const monitorUserFeed = () => {
     document.querySelectorAll('div[id^="hyperfeed_story_id"]').forEach(feed => {
       const feedTime = feed.querySelector('abbr.timestamp.livetimestamp')
 
-      if (feedTime && upTo(feedTime, 'div').querySelector('[data-tooltip-content]').getAttribute('data-tooltip-content').includes('Public')) {
+      if (! feedTime) {
+        return
+      }
+
+      const isPublic = upTo(feedTime, 'div').querySelector('[data-tooltip-content]')
+
+      if (isPublic && isPublic.getAttribute('data-tooltip-content').includes('Public')) {
         const fbid = retrieveFbidFromUrl(upTo(feedTime, 'a').href)
 
-        if (! feeds.includes(fbid)) {
+        if (fbid && ! feeds.includes(fbid)) {
           feeds.push(fbid)
 
           chrome.storage.local.set({ feeds })
+        }
 
+        if (isFeedInScreen(feed)) {
           console.log(fbid)
         }
       }
