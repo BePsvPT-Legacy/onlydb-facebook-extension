@@ -24,8 +24,10 @@ const initCustomButton = () => {
 
   customButton.className = 'custom-button'
   customButton.innerHTML = `
-<i class="fa fa-fw fa-fire" aria-hidden="true" data-hover="tooltip" data-tooltip-delay="350" data-tooltip-content="熱門"></i>
-<i class="fa fa-fw fa-bar-chart" aria-hidden="true" data-hover="tooltip" data-tooltip-delay="350" data-tooltip-content="統計"></i>`
+<i class="fa fa-fw fa-fire" aria-hidden="true" data-hover="tooltip" data-tooltip-delay="350" data-tooltip-content="熱門粉專"></i>
+<i class="fa fa-fw fa-bar-chart" aria-hidden="true" data-hover="tooltip" data-tooltip-delay="350" data-tooltip-content="個人統計"></i>
+<i class="fa fa-fw fa-history" aria-hidden="true" data-hover="tooltip" data-tooltip-delay="350" data-tooltip-content="歷史回顧"></i>
+<i class="fa fa-fw fa-cog" aria-hidden="true" data-hover="tooltip" data-tooltip-delay="350" data-tooltip-content="設定"></i>`
 
   upTo(document.querySelector('div.custom-search-bar'), 'div').append(customButton)
 }
@@ -89,6 +91,17 @@ const monitorUserFeed = () => {
     }
 
     document.querySelectorAll('div[id^="hyperfeed_story_id"]').forEach(feed => {
+      const isSponsored = feed.querySelector('a[href^="https://l.facebook.com/l.php"]')
+
+      if (isSponsored) {
+        switch (isSponsored.innerText) {
+          case 'Sponsored':
+          case '贊助':
+            console.log('remove ad')
+            return feed.remove()
+        }
+      }
+
       const feedTime = feed.querySelector('abbr.timestamp.livetimestamp')
 
       if (! feedTime) {
