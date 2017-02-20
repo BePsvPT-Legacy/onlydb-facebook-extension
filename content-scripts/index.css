@@ -1,11 +1,11 @@
 /* fb search bar */
 div[role="search"] {
     display: inline-block;
-    width: 340px !important;
+    width: 190px !important;
 }
 
 div.uiContextualLayer.uiContextualLayerBelowLeft {
-    width: 340px;
+    width: 190px;
     min-width: unset;
 }
 
@@ -19,7 +19,7 @@ div.uiContextualLayer.uiContextualLayerBelowLeft {
 }
 
 .custom-search-bar input {
-    width: 240px;
+    width: 185px;
     height: 22px;
     border: none;
     outline: none;
