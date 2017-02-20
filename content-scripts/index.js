@@ -1,4 +1,9 @@
-// insert custom search bar in the right of facebook search bar
+// add class to navbar
+const initCustomNavbar = () => {
+  upTo(document.querySelector('div[role="search"]'), 'div').className += ' custom-navbar'
+}
+
+// add custom search bar in the right of facebook search bar
 const initCustomSearchBar = () => {
   const customSearchBar = document.createElement('div')
 
@@ -11,6 +16,18 @@ const initCustomSearchBar = () => {
 </form>`
 
   upTo(document.querySelector('div[role="search"]'), 'div').append(customSearchBar)
+}
+
+// add custom button in the right of custom search bar
+const initCustomButton = () => {
+  const customButton = document.createElement('div')
+
+  customButton.className = 'custom-button'
+  customButton.innerHTML = `
+<i class="fa fa-fw fa-fire" aria-hidden="true"></i>
+<i class="fa fa-fw fa-bar-chart" aria-hidden="true"></i>`
+
+  upTo(document.querySelector('div.custom-search-bar'), 'div').append(customButton)
 }
 
 // listen for user use fb search bar
@@ -100,8 +117,11 @@ const monitorUserFeed = () => {
 }
 
 document.onreadystatechange = () => {
-  if ('complete' === document.readyState) {
+  if ('interactive' === document.readyState) {
+    initCustomNavbar()
     initCustomSearchBar()
+    initCustomButton()
+
     listenForFbSearchBar()
 
     monitorUserFeed()

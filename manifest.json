@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "logger",
+  "name": "onlydb-facebook",
   "version": "0.0.1",
   "browser_action": {},
   "background": {
@@ -10,10 +10,13 @@
   "content_scripts": [
     {
       "matches": ["https://www.facebook.com/*"],
-      "css": ["content-scripts/index.css"],
+      "css": ["content-scripts/index.css", "vendor/font-awesome.min.css"],
       "js": ["utils.js", "content-scripts/index.js"],
-      "run_at": "document_end"
+      "run_at": "document_start"
     }
+  ],
+  "web_accessible_resources": [
+    "vendor/*"
   ],
   "permissions": [
     "history",
