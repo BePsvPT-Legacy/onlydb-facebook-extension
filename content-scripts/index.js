@@ -1,10 +1,10 @@
 // add class to navbar
-const initCustomNavbar = () => {
-  upTo(document.querySelector('div[role="search"]'), 'div').className += ' custom-navbar'
+const initCustomNavbar = (dom) => {
+  dom.className += ' custom-navbar'
 }
 
 // add custom search bar in the right of facebook search bar
-const initCustomSearchBar = () => {
+const initCustomSearchBar = (dom) => {
   const customSearchBar = document.createElement('div')
 
   customSearchBar.className = 'custom-search-bar'
@@ -15,7 +15,7 @@ const initCustomSearchBar = () => {
   </div>
 </form>`
 
-  upTo(document.querySelector('div[role="search"]'), 'div').append(customSearchBar)
+  dom.append(customSearchBar)
 }
 
 // add custom button in the right of custom search bar
@@ -24,8 +24,8 @@ const initCustomButton = () => {
 
   customButton.className = 'custom-button'
   customButton.innerHTML = `
-<i class="fa fa-fw fa-fire" aria-hidden="true"></i>
-<i class="fa fa-fw fa-bar-chart" aria-hidden="true"></i>`
+<i class="fa fa-fw fa-fire" aria-hidden="true" data-hover="tooltip" data-tooltip-delay="350" data-tooltip-content="熱門"></i>
+<i class="fa fa-fw fa-bar-chart" aria-hidden="true" data-hover="tooltip" data-tooltip-delay="350" data-tooltip-content="統計"></i>`
 
   upTo(document.querySelector('div.custom-search-bar'), 'div').append(customButton)
 }
@@ -34,7 +34,7 @@ const initCustomButton = () => {
 const listenForFbSearchBar = () => {
   const fbSearchInputs = document.querySelectorAll('input[name="q"]')
 
-  if (fbSearchInputs.length < 2) {
+  if (fbSearchInputs.length < 2 && ! document.querySelector('#q')) {
     window.setTimeout(listenForFbSearchBar, 1000)
   } else {
     fbSearchInputs.item(fbSearchInputs.length - 1).addEventListener('input', function(e) {
@@ -95,9 +95,15 @@ const monitorUserFeed = () => {
         return
       }
 
-      const isPublic = upTo(feedTime, 'div').querySelector('[data-tooltip-content]')
+      let isPublic = upTo(feedTime, 'div').querySelector('[data-tooltip-content]')
 
-      if (isPublic && isPublic.getAttribute('data-tooltip-content').includes('Public')) {
+      if (! isPublic) {
+        return
+      }
+
+      isPublic = isPublic.getAttribute('data-tooltip-content')
+
+      if (isPublic.includes('Public') || isPublic.includes('公開')) {
         const fbid = retrieveFbidFromUrl(upTo(feedTime, 'a').href)
 
         if (fbid && ! feeds.includes(fbid)) {
@@ -116,10 +122,23 @@ const monitorUserFeed = () => {
   }
 }
 
+// get facebook navbar dom
+const navbar = () => {
+  let dom = document.querySelector('div[role="search"]')
+
+  if (! dom) {
+    dom = upTo(document.querySelector('form[role="search"]'), 'div')
+  }
+
+  return upTo(dom, 'div')
+}
+
 document.onreadystatechange = () => {
   if ('interactive' === document.readyState) {
-    initCustomNavbar()
-    initCustomSearchBar()
+    const dom = navbar()
+
+    initCustomNavbar(dom)
+    initCustomSearchBar(dom)
     initCustomButton()
 
     listenForFbSearchBar()

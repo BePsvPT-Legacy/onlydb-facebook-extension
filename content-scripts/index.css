@@ -5,9 +5,14 @@
     align-items: center;
 }
 
+.custom-navbar div {
+    margin: 0 2px;
+}
+
 /* fb search bar */
-div[role="search"] {
+div[role="search"], form[role="search"] {
     top: 0;
+    padding-top: 0;
     width: 190px !important;
 }
 
