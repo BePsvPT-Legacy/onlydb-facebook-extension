@@ -97,7 +97,7 @@ const monitorUserFeed = () => {
         switch (isSponsored.innerText) {
           case 'Sponsored':
           case '贊助':
-            console.log('remove ad')
+          case '広告':
             return feed.remove()
         }
       }
