@@ -39,6 +39,7 @@ div.uiContextualLayer.uiContextualLayerBelowLeft {
 /* custom button */
 .custom-button {
     padding: 0 5px;
+    user-select: none;
 }
 
 .custom-button .fa {
@@ -46,4 +47,35 @@ div.uiContextualLayer.uiContextualLayerBelowLeft {
     cursor: pointer;
     color: #18243D;
     font-size: 22px;
+}
+
+@keyframes custom-modal-fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.custom-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999999;
+    background-color: rgba(0, 0, 0, .4);
+    animation: custom-modal-fade-in .15s;
+}
+
+.custom-modal .background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+.custom-modal .box {
+    position: relative;
+    margin: 5vh auto 0;
+    width: 80vw;
+    min-height: 90vh;
+    background-color: #fff;
+    border-radius: 3px;
 }

@@ -33,6 +33,29 @@ ${iconNode('history', '歷史回顧')}
 ${iconNode('cog', '設定')}`
 
   upTo(document.querySelector('div.custom-search-bar'), 'div').append(node)
+
+  document.querySelectorAll('.custom-button i').forEach(node => {
+    node.addEventListener('click', e => {
+      document.querySelector('.custom-modal').style.display = 'block'
+    })
+  })
+}
+
+// add button modal
+const initModal = () => {
+  const node = document.createElement('div')
+
+  node.className = 'custom-modal'
+  node.style.display = 'none'
+  node.innerHTML = `
+<div class="background"></div>
+<div class="box"></div>`
+
+  document.body.append(node)
+
+  document.querySelector('.custom-modal .background').onclick = (e) => {
+    node.style.display = 'none'
+  }
 }
 
 // listen for user use fb search bar
@@ -156,6 +179,7 @@ document.onreadystatechange = () => {
     initCustomNavbar(dom)
     initCustomSearchBar(dom)
     initCustomButton()
+    initModal()
 
     listenForFbSearchBar()
 
