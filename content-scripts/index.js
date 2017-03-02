@@ -5,31 +5,34 @@ const initCustomNavbar = (dom) => {
 
 // add custom search bar in the right of facebook search bar
 const initCustomSearchBar = (dom) => {
-  const customSearchBar = document.createElement('div')
+  const node = document.createElement('div')
 
-  customSearchBar.className = 'custom-search-bar'
-  customSearchBar.innerHTML = `
+  node.className = 'custom-search-bar'
+  node.innerHTML = `
 <form>
   <div>
     <input id="custom-search-input" type="text" placeholder="Search DB">
   </div>
 </form>`
 
-  dom.append(customSearchBar)
+  dom.append(node)
 }
 
 // add custom button in the right of custom search bar
 const initCustomButton = () => {
-  const customButton = document.createElement('div')
+  const iconNode = (icon, name) => {
+    return `<i class="fa fa-fw fa-${icon}" aria-hidden="true" data-hover="tooltip" data-tooltip-delay="350" data-tooltip-content="${name}"></i>`
+  }
+  const node = document.createElement('div')
 
-  customButton.className = 'custom-button'
-  customButton.innerHTML = `
-<i class="fa fa-fw fa-fire" aria-hidden="true" data-hover="tooltip" data-tooltip-delay="350" data-tooltip-content="熱門粉專"></i>
-<i class="fa fa-fw fa-bar-chart" aria-hidden="true" data-hover="tooltip" data-tooltip-delay="350" data-tooltip-content="個人統計"></i>
-<i class="fa fa-fw fa-history" aria-hidden="true" data-hover="tooltip" data-tooltip-delay="350" data-tooltip-content="歷史回顧"></i>
-<i class="fa fa-fw fa-cog" aria-hidden="true" data-hover="tooltip" data-tooltip-delay="350" data-tooltip-content="設定"></i>`
+  node.className = 'custom-button'
+  node.innerHTML = `
+${iconNode('fire', '熱門粉專')}
+${iconNode('bar-chart', '個人統計')}
+${iconNode('history', '歷史回顧')}
+${iconNode('cog', '設定')}`
 
-  upTo(document.querySelector('div.custom-search-bar'), 'div').append(customButton)
+  upTo(document.querySelector('div.custom-search-bar'), 'div').append(node)
 }
 
 // listen for user use fb search bar
