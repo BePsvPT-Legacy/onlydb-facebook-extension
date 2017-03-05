@@ -4,14 +4,14 @@
   "version": "0.0.1",
   "browser_action": {},
   "background": {
-    "page": "background/index.html",
+    "page": "background.html",
     "persistent": true
   },
   "content_scripts": [
     {
       "matches": ["https://www.facebook.com/*"],
-      "css": ["content-scripts/index.css", "vendor/font-awesome.min.css"],
-      "js": ["utils.js", "content-scripts/index.js"],
+      "css": ["content-scripts.css", "vendor/font-awesome.min.css"],
+      "js": ["content-scripts.js"],
       "run_at": "document_start"
     }
   ],
