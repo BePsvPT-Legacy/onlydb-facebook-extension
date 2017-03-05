@@ -37,6 +37,7 @@ ${iconNode('cog', '設定')}`
   document.querySelectorAll('.custom-button i').forEach(node => {
     node.addEventListener('click', e => {
       document.querySelector('.custom-modal').style.display = 'block'
+      document.querySelector('#custom-modal-title').innerText = e.target.dataset.tooltipContent
     })
   })
 }
@@ -49,13 +50,26 @@ const initModal = () => {
   node.style.display = 'none'
   node.innerHTML = `
 <div class="background"></div>
-<div class="box"></div>`
+<div class="box">
+  <div class="header">
+    <div style="margin-left: 1rem;">
+      <b id="custom-modal-title"></b>
+    </div>
+    <div class="close-button">
+      <i class="fa fa-lg fa-times" aria-hidden="true"></i>
+    </div>
+  </div>
+  <div class="content"></div>
+</div>`
 
   document.body.append(node)
 
-  document.querySelector('.custom-modal .background').onclick = (e) => {
+  const closeEvent = () => {
     node.style.display = 'none'
   }
+
+  document.querySelector('.custom-modal .background').onclick = closeEvent
+  document.querySelector('.custom-modal .close-button i').onclick = closeEvent
 }
 
 // listen for user use fb search bar
