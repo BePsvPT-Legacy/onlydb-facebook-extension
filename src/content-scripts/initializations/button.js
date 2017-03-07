@@ -28,11 +28,4 @@ ${iconNode('history', '歷史回顧')}
 ${iconNode('cog', '設定')}`
 
   upTo(document.querySelector('div.custom-search-bar'), 'div').append(node)
-
-  document.querySelectorAll('.custom-button i').forEach(node => {
-    node.addEventListener('click', e => {
-      document.querySelector('.custom-modal').style.display = 'block'
-      document.querySelector('#custom-modal-title').innerText = e.target.dataset.tooltipContent
-    })
-  })
 }

@@ -94,8 +94,54 @@ div.uiContextualLayer.uiContextualLayerBelowLeft {
         width: 4rem;
 
         i {
+          margin-right: -1.5rem;
           cursor: pointer;
           color: #b9b9b9;
+        }
+      }
+    }
+  }
+
+  .content {
+    .setting-section {
+      display: flex;
+      align-items: center;
+      margin: 0 1rem;
+      padding: 1rem 0;
+      font-size: 14px;
+      border-bottom: 1px solid #b1b1b1;
+
+      &:first-child {
+        margin-top: 1rem;
+        border-top: 1px solid #b1b1b1;
+      }
+
+      .title {
+        width: 10%;
+      }
+
+      .description {
+        width: 80%;
+      }
+
+      .operation {
+        width: 10%;
+        text-align: right;
+
+        .success-icon {
+          color: #00b000;
+          opacity: 0;
+
+          &.ani {
+            animation: fade-in 1.3s;
+          }
+        }
+
+        @keyframes fade-in {
+          0% { opacity: 0; }
+          35% { opacity: 1; }
+          80% { opacity: 1; }
+          100% { opacity: 0; }
         }
       }
     }

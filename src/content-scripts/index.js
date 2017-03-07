@@ -18,6 +18,7 @@ document.onreadystatechange = () => {
     require('./initializations/modal')()
 
     require('./monitors/facebook-search')()
+    require('./monitors/button-click')()
     require('./monitors/user-feed')()
   }
 }

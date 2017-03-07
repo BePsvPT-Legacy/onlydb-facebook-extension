@@ -6,6 +6,7 @@
     "dev": "concurrently \"yarn run build\" \"yarn run scss-cs\""
   },
   "dependencies": {
+    "boolean": "^0.1.2",
     "url-parse": "^1.1.8"
   },
   "devDependencies": {

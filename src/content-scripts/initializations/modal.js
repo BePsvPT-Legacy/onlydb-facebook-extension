@@ -10,15 +10,17 @@ module.exports = () => {
   node.style.display = 'none'
   node.innerHTML = `
 <div class="background"></div>
+
 <div class="box">
   <div class="header">
     <div style="margin-left: 1rem;">
-      <b id="custom-modal-title"></b>
+      <b id="custom-modal-title" style="font-size: 16px;"></b>
     </div>
     <div class="close-button">
       <i class="fa fa-lg fa-times" aria-hidden="true"></i>
     </div>
   </div>
+  
   <div class="content"></div>
 </div>`
 
