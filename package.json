@@ -1,12 +1,13 @@
 {
   "private": true,
   "scripts": {
-    "build": "webpack -p --watch --colors",
+    "build": "webpack --watch --colors",
     "scss-cs": "sass --watch --style compressed --scss --sourcemap=none src/content-scripts/index.scss:build/content-scripts.css",
     "dev": "concurrently \"yarn run build\" \"yarn run scss-cs\""
   },
   "dependencies": {
     "boolean": "^0.1.2",
+    "dot-prop": "^4.1.1",
     "url-parse": "^1.1.8"
   },
   "devDependencies": {
