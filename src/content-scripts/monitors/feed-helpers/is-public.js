@@ -1,18 +1,10 @@
-import upTo from '../../../utils/up-to'
-
 /**
  * Determine the feed is public or not.
  *
  * @returns boolean
  */
 export default (feed) => {
-  const timeSpan = feed.querySelector('abbr.timestamp.livetimestamp')
-
-  if (! timeSpan) {
-    return false
-  }
-
-  let privacy = upTo(timeSpan, 'div').querySelector('[data-tooltip-content]')
+  let privacy = feed.querySelector('a[data-hover="tooltip"][class*="Privacy"], div[data-hover="tooltip"]')
 
   if (! privacy) {
     return false
