@@ -23,7 +23,7 @@ export default {
         items = items[k]
 
         if (-1 !== pos) {
-          items = dotProp.get(items, key.substr(pos), {})
+          items = dotProp.get(items, key.slice(pos + 1), {})
         }
       }
 
