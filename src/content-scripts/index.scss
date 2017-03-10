@@ -103,6 +103,10 @@ div.uiContextualLayer.uiContextualLayerBelowLeft {
   }
 
   .content {
+    height: calc(90vh - 2.5rem);
+    overflow-x: hidden;
+    overflow-y: auto;
+
     .setting-section {
       display: flex;
       align-items: center;
@@ -142,6 +146,25 @@ div.uiContextualLayer.uiContextualLayerBelowLeft {
           35% { opacity: 1; }
           80% { opacity: 1; }
           100% { opacity: 0; }
+        }
+      }
+    }
+
+    .hottest-section {
+      display: flex;
+      flex-direction: column;
+
+      .posts {
+        display: flex;
+        margin: 1rem auto;
+        width: 95%;
+        max-height: 480px;
+        overflow: auto;
+
+        div[data-width] {
+          &:not(:last-child) {
+            margin-right: 1.5rem;
+          }
         }
       }
     }

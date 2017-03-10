@@ -12,6 +12,7 @@ document.onreadystatechange = () => {
       return upTo(dom, 'div')
     })()
 
+    require('./initializations/hook')()
     require('./initializations/navbar')(dom)
     require('./initializations/search-bar')(dom)
     require('./initializations/button')()

@@ -4,7 +4,8 @@
     "browser" : true
   },
   "globals": {
-    "chrome": true
+    "chrome": true,
+    "FB": true
   },
   "extends": "eslint-config-vue",
   "rules": {

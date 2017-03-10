@@ -3,10 +3,6 @@
   "name": "onlydb-facebook",
   "version": "0.0.1",
   "browser_action": {},
-  "background": {
-    "page": "background.html",
-    "persistent": true
-  },
   "content_scripts": [
     {
       "matches": ["https://www.facebook.com/*"],
@@ -16,7 +12,8 @@
     }
   ],
   "web_accessible_resources": [
-    "vendor/*"
+    "vendor/*",
+    "hooks.js"
   ],
   "permissions": [
     "history",

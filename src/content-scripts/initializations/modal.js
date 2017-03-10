@@ -28,6 +28,10 @@ module.exports = () => {
 
   const closeEvent = () => {
     node.style.display = 'none'
+
+    document.body.style.overflowY = ''
+
+    document.querySelector('.custom-modal .box .content').innerHTML = ''
   }
 
   document.querySelector('.custom-modal .background').onclick = closeEvent

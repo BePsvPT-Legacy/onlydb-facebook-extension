@@ -1,6 +1,7 @@
 module.exports = () => {
   document.querySelectorAll('.custom-button i').forEach(node => {
     node.addEventListener('click', e => {
+      document.body.style.overflowY = 'hidden'
       document.querySelector('.custom-modal').style.display = 'block'
       document.querySelector('#custom-modal-title').innerText = e.target.dataset.tooltipContent
 

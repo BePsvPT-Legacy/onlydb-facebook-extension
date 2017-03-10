@@ -3,7 +3,8 @@ const path = require('path')
 
 const config = {
   entry: {
-    'content-scripts.js': path.resolve(__dirname, 'src', 'content-scripts', 'index.js')
+    'content-scripts.js': path.resolve(__dirname, 'src', 'content-scripts', 'index.js'),
+    'hooks.js': path.resolve(__dirname, 'src', 'hooks', 'index.js')
   },
 
   output: {
