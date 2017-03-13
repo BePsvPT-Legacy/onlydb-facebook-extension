@@ -3,6 +3,7 @@ import posts from './hottest/posts'
 module.exports = (dom) => {
   dom.innerHTML = `
 <div class="hottest-section">
+  <h1 style="margin-left: 1.5rem; margin-top: 1rem;">熱門動態</h1>
   <div class="posts"></div>
 </div>
 `

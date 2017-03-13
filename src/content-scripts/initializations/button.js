@@ -22,7 +22,7 @@ module.exports = () => {
 
   node.className = 'custom-button'
   node.innerHTML = `
-${iconNode('fire', '熱門粉專')}
+${iconNode('fire', '熱門趨勢')}
 ${iconNode('bar-chart', '個人統計')}
 ${iconNode('history', '歷史回顧')}
 ${iconNode('cog', '設定')}`

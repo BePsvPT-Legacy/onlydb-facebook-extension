@@ -6,7 +6,7 @@
 module.exports = () => {
   const js = document.createElement('script')
 
-  js.src = 'chrome-extension://fhejeipcphchemncfcobjcaccjgjbefm/hooks.js'
+  js.src = `chrome-extension://${chrome.i18n.getMessage('@@extension_id')}/hooks.js`
 
   document.head.append(js)
 }
