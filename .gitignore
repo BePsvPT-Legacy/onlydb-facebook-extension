@@ -1,2 +1,4 @@
 /.sass-cache
 /node_modules
+build.crx
+build.pem
