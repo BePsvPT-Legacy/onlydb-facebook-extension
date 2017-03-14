@@ -3,7 +3,11 @@ import posts from './hottest/posts'
 module.exports = (dom) => {
   dom.innerHTML = `
 <div class="hottest-section">
-  <h1 style="margin-left: 1.5rem; margin-top: 1rem;">熱門動態</h1>
+  <div style="margin-left: 1.5rem; margin-top: 1rem;">
+    <h1 style="display: inline;">熱門動態</h1>
+    <i class="fa fa-spinner fa-pulse fa-fw loading" style="color: orange; display: none;"></i>
+  </div>
+  
   <div class="posts"></div>
 </div>
 `
@@ -19,7 +23,7 @@ module.exports = (dom) => {
     // offsetWidth 可視寬度(含 margin)
     // clientWidth 可視寬度
 
-    if (target.scrollLeft > (target.scrollWidth - target.clientWidth * 2)) {
+    if (target.scrollLeft > (target.scrollWidth - target.clientWidth * 2.5)) {
       posts.load()
     }
   })

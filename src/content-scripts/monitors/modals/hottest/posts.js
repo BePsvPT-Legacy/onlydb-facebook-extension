@@ -20,6 +20,8 @@ export default {
 
     this.status.loading = true
 
+    document.querySelector('.hottest-section div i.loading').style.display = ''
+
     fetch(`https://www.cs.ccu.edu.tw/~cys102u/api.php?page=${this.status.page}`).then(response => {
       response.json().then(data => {
         const postsDom = document.querySelector('.hottest-section .posts')
@@ -32,6 +34,8 @@ export default {
         }
 
         window.postMessage({ type: 'embed-posts' }, '*')
+
+        document.querySelector('.hottest-section div i.loading').style.display = 'none'
 
         this.status.loading = false
       })
