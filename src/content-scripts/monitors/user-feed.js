@@ -1,3 +1,4 @@
+import boolean from 'boolean'
 import config from '../../utils/config'
 import parseFbid from './feed-helpers/parse-fbid'
 import inScreen from './feed-helpers/in-screen'
@@ -19,7 +20,7 @@ module.exports = () => {
     document.querySelectorAll('div[id^="hyperfeed_story_id"]').forEach(feed => {
       if (isSponsored(feed)) {
         return config.get('setting.remove-ad', remove => {
-          return remove && feed.remove()
+          return boolean(remove) && feed.remove()
         })
       } else if (isPublic(feed)) {
         const fbid = parseFbid(feed.querySelector('div span span a:not([data-hovercard-prefer-more-content-show])').href)

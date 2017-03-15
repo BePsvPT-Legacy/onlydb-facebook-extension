@@ -1,3 +1,6 @@
+import boolean from 'boolean'
+import config from '../../utils/config'
+
 /**
  * Listen for facebook search.
  *
@@ -11,6 +14,12 @@ const search = () => {
   } else {
     fbSearchInputs.item(fbSearchInputs.length - 1).addEventListener('input', function (e) {
       document.querySelector('#custom-search-input').value = e.target.value
+
+      config.get('setting.sync-search', sync => {
+        if (boolean(sync)) {
+          //
+        }
+      })
     })
   }
 }

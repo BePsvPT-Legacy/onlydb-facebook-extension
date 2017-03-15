@@ -2,7 +2,7 @@ import boolean from 'boolean'
 import config from '../../../utils/config'
 import upTo from '../../../utils/up-to'
 
-const render = (setting) => {
+const render = setting => {
   const table = [
     { title: '精選動態', description: '於動態時報上嵌入我們精選的熱門動態', key: 'featured-feed' },
     { title: '移除廣告', description: '於動態時報上移除為贊助的動態', key: 'remove-ad' },
@@ -35,7 +35,7 @@ const render = (setting) => {
 }
 
 module.exports = (dom) => {
-  config.get('setting', (setting) => {
+  config.get('setting', setting => {
     dom.innerHTML = render(setting)
 
     document.querySelectorAll('.custom-modal .box .content .setting-section .operation select').forEach(node => {

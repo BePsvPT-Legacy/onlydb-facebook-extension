@@ -2,7 +2,6 @@
   "manifest_version": 2,
   "name": "onlydb-facebook",
   "version": "0.0.1",
-  "browser_action": {},
   "content_scripts": [
     {
       "matches": ["https://www.facebook.com/*"],
@@ -11,13 +10,12 @@
       "run_at": "document_start"
     }
   ],
+  "incognito": "not_allowed",
   "web_accessible_resources": [
     "vendor/*",
     "hooks.js"
   ],
   "permissions": [
-    "history",
-    "storage",
-    "unlimitedStorage"
+    "storage"
   ]
 }
