@@ -23,16 +23,75 @@ div.uiContextualLayer.uiContextualLayerBelowLeft {
 
 /* custom search bar */
 .custom-search-bar {
-  padding: 1px 5px 0;
+  height: 25px;
+  padding-left: 5px;
   background-color: #fff;
   border: 1px solid #3b5998;
   border-radius: 3px;
 
-  input {
-    width: 185px;
-    height: 22px;
-    border: none;
-    outline: none;
+  form {
+    height:100%;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+
+    input {
+      width: 150px;
+      height: 23px;
+      border: none;
+      outline: none;
+    }
+
+    i {
+      position: relative;
+      top: -6px;
+      height: 25px;
+      width: 3rem;
+      background-color: #f2f3f5;
+      color: #54585f;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f0f1f3;
+      }
+
+      &:active {
+        background-color: #4080ff;
+        color: #fff;
+      }
+
+      &::before {
+        vertical-align: -webkit-baseline-middle;
+      }
+    }
+  }
+
+  .result {
+    display: none;
+    background-color: #fff;
+    margin: 0 0 0 -5px;
+    width: calc(100% + 4px);
+    max-width: 205px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    box-shadow: 0 0 7px 0 rgba(20%, 20%, 40%, 0.5);
+
+    ul {
+      li {
+        a {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          padding: 0 .5rem;
+          height: 40px;
+          color: #000;
+
+          &:hover {
+            background-color: #ecf0f7;
+          }
+        }
+      }
+    }
   }
 }
 
