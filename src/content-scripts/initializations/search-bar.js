@@ -14,7 +14,7 @@ module.exports = dom => {
   node.className = 'custom-search-bar'
   node.innerHTML = `
 <form class="search-form">
-  <input id="custom-search-input" type="text" placeholder="Search DB">
+  <input id="custom-search-input" type="text" placeholder="Post Search">
   <i class="fa fa-fw fa-search" aria-hidden="true"></i>
 </form>
 
