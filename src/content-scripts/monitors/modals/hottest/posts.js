@@ -23,7 +23,7 @@ export default {
 
     document.querySelector('.hottest-section div i.loading').style.display = ''
 
-    fetch(`https://www.cs.ccu.edu.tw/~cys102u/api.php?page=${this.status.page}`).then(response => {
+    fetch(`https://localhost:3000/api.php?page=${this.status.page}`).then(response => {
       response.json().then(data => {
         const postsDom = document.querySelector('.hottest-section .posts')
 

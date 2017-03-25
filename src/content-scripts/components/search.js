@@ -9,7 +9,7 @@ import 'whatwg-fetch'
  * @return void
  */
 export default (keyword, page = 1) => {
-  fetch(`https://www.cs.ccu.edu.tw/~cys102u/api.php?type=search&keyword=${keyword}&page=${page}`).then(response => {
+  fetch(`https://localhost:3000/api.php?type=search&keyword=${keyword}&page=${page}`).then(response => {
     response.json().then(data => {
       const resultDom = document.querySelector('div.custom-search-bar .result')
 
