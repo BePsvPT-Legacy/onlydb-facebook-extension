@@ -3,7 +3,7 @@
  *
  * @param dom
  *
- * @returns void
+ * @return void
  */
 module.exports = dom => {
   dom.className += ' custom-navbar'

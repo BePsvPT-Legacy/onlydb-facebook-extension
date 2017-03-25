@@ -5,12 +5,18 @@ import inScreen from './feed-helpers/in-screen'
 import isPublic from './feed-helpers/is-public'
 import isSponsored from './feed-helpers/is-sponsored'
 
+/**
+ * Listen for user feeds.
+ *
+ * @return void
+ */
 module.exports = () => {
   const feeds = []
 
   let lastY = 0
 
   window.onscroll = () => {
+    // 確保只在主畫面運行
     if ('/' !== window.location.pathname) {
       lastY = 0
 

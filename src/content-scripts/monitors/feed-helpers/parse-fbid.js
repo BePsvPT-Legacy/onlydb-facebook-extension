@@ -5,9 +5,10 @@ const parsedUrls = {}
 /**
  * Parse fbid from url.
  *
- * @returns string|null
+ * @return string|null
  */
 const fromUrl = url => {
+  // 已分析過的網址就直接從快取拿
   if (parsedUrls.hasOwnProperty(url)) {
     return parsedUrls[url]
   }
@@ -36,7 +37,7 @@ const fromUrl = url => {
 /**
  * Parse fbid from given value.
  *
- * @returns string|null
+ * @return string|null
  */
 export default val => {
   if (val.match(/(\b(https?):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig)) {

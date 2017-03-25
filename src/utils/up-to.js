@@ -3,7 +3,7 @@
  *
  * @param el
  * @param tagName
- * @returns {*}
+ * @return {*}|null
  *
  * @reference http://stackoverflow.com/a/6857116
  */

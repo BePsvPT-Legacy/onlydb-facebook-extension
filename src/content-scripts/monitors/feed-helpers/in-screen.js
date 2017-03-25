@@ -1,7 +1,7 @@
 /**
  * Determine the feed is in screen or not.
  *
- * @returns boolean
+ * @return boolean
  */
 export default (feed) => {
   const rect = feed.getBoundingClientRect()

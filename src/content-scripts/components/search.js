@@ -1,5 +1,13 @@
 import 'whatwg-fetch'
 
+/**
+ * Fetch search api.
+ *
+ * @param keyword
+ * @param page
+ *
+ * @return void
+ */
 export default (keyword, page = 1) => {
   fetch(`https://www.cs.ccu.edu.tw/~cys102u/api.php?type=search&keyword=${keyword}&page=${page}`).then(response => {
     response.json().then(data => {

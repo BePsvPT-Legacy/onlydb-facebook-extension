@@ -7,7 +7,7 @@ export default {
    * @param key
    * @param cb
    *
-   * @returns void
+   * @return void
    */
   get (key, cb = null) {
     if (null === cb) {
@@ -38,7 +38,7 @@ export default {
    * @param val
    * @param cb
    *
-   * @returns void
+   * @return void
    */
   set (key, val, cb = null) {
     if (! key.includes('.')) {

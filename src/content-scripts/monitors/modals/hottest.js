@@ -1,5 +1,12 @@
 import posts from './hottest/posts'
 
+/**
+ * Open hottest modal.
+ *
+ * @param dom
+ *
+ * @return void
+ */
 module.exports = (dom) => {
   dom.innerHTML = `
 <div class="hottest-section">
@@ -15,6 +22,7 @@ module.exports = (dom) => {
   posts.status.page = 1
   posts.load()
 
+  // 瀑布流
   document.querySelector('.hottest-section .posts').addEventListener('scroll', e => {
     const target = e.target
 

@@ -2,11 +2,11 @@ import searchApi from '../components/search'
 import upTo from '../../utils/up-to'
 
 /**
- * Add search bar in the right of facebook search bar.
+ * Add search bar on the right of facebook search bar.
  *
  * @param dom
  *
- * @returns void
+ * @return void
  */
 module.exports = dom => {
   const node = document.createElement('div')
@@ -24,15 +24,18 @@ module.exports = dom => {
 
   dom.append(node)
 
+  // 當搜尋框的值是 truthy 則呼叫 search api
   document.querySelector('#custom-search-input').addEventListener('input', function (e) {
     if (e.target.value) {
       searchApi(e.target.value)
     }
   })
 
+  // 當點擊搜尋框外的區域，隱藏搜尋結果
   document.body.addEventListener('click', e => {
     const parent = upTo(e.target, 'form')
 
+    // upTo 可能回傳 null，因此需先確保 parent 是 truthy
     if (! (parent && ('search-form' === parent.className))) {
       document.querySelector('div.custom-search-bar .result').style.display = 'none'
     }

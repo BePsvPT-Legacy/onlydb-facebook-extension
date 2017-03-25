@@ -2,6 +2,13 @@ import boolean from 'boolean'
 import config from '../../../utils/config'
 import upTo from '../../../utils/up-to'
 
+/**
+ * Render setting html dom.
+ *
+ * @param setting
+ *
+ * @return string
+ */
 const render = setting => {
   const table = [
     { title: '精選動態', description: '於動態時報上嵌入我們精選的熱門動態', key: 'featured-feed' },
@@ -34,15 +41,24 @@ const render = setting => {
   }, '')
 }
 
+/**
+ * Open setting modal.
+ *
+ * @param dom
+ *
+ * @return void
+ */
 module.exports = (dom) => {
   config.get('setting', setting => {
     dom.innerHTML = render(setting)
 
+    // 監聽設定更改
     document.querySelectorAll('.custom-modal .box .content .setting-section .operation select').forEach(node => {
       node.addEventListener('change', e => {
         setting[e.target.id] = boolean(e.target.value)
 
         config.set('setting', setting, () => {
+          // 綠色打勾的動畫特效
           const n = upTo(e.target, 'div').querySelector('span')
 
           n.className = n.className.replace(/ ?ani/g, '')

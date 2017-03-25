@@ -1,7 +1,7 @@
 /**
  * Determine the feed is public or not.
  *
- * @returns boolean
+ * @return boolean
  */
 export default (feed) => {
   let privacy = feed.querySelector('a[data-hover="tooltip"][class*="Privacy"], div[data-hover="tooltip"]')

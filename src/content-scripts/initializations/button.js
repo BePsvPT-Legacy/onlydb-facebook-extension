@@ -1,21 +1,21 @@
 import upTo from '../../utils/up-to'
 
 /**
- * Create a font awesome icon node.
+ * Create font awesome icon node.
  *
  * @param icon
  * @param name
  *
- * @returns string
+ * @return string
  */
 function iconNode (icon, name) {
   return `<i class="fa fa-fw fa-${icon}" aria-hidden="true" data-hover="tooltip" data-tooltip-delay="350" data-tooltip-content="${name}"></i>`
 }
 
 /**
- * Add buttons in the right of search bar.
+ * Add buttons on the right of search bar.
  *
- * @returns void
+ * @return void
  */
 module.exports = () => {
   const node = document.createElement('div')

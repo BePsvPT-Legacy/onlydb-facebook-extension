@@ -1,7 +1,7 @@
 /**
  * Determine the feed is sponsored or not.
  *
- * @returns boolean
+ * @return boolean
  */
 export default (feed) => {
   const isSponsored = feed.querySelector('a[href^="https://l.facebook.com/l.php"]')

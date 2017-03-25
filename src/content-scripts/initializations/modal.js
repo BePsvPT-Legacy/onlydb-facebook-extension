@@ -1,7 +1,7 @@
 /**
  * Add modal.
  *
- * @returns void
+ * @return void
  */
 module.exports = () => {
   const node = document.createElement('div')
@@ -26,6 +26,7 @@ module.exports = () => {
 
   document.body.append(node)
 
+  // 當 modal 關閉時，顯示 body 的滾動條以及清空 modal content
   const closeEvent = () => {
     node.style.display = 'none'
 

@@ -14,6 +14,7 @@ export default {
    * @return void
    */
   load (cb = null) {
+    // 防止 race condition
     if (this.status.loading) {
       return
     }
@@ -33,6 +34,7 @@ export default {
           cb(data)
         }
 
+        // 透過 postMessage 呼叫 facebook sdk 來渲染動態
         window.postMessage({ type: 'embed-posts' }, '*')
 
         document.querySelector('.hottest-section div i.loading').style.display = 'none'
